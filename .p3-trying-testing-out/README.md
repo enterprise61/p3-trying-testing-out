@@ -51,4 +51,6 @@ Export default defineConfig({
     expect(screen.getByText(/open for business/i)).toBeInTheDocument();
 });
 ```
+![terminal output](https://github.com/user-attachments/assets/b19fe4ab-15b9-4652-96c6-031b8b02da75)
+
 
