@@ -1,0 +1,60 @@
+# p3-trying-testing-out
+
+## Using jest DOM for testing inside of React
+
+>`npm create vite my-app --template react-ts`
+
+>`cd my-app`
+
+### Install dependencies
+
+>`npm install`
+### Install testing libraries
+
+>`npm install --save-dev vitest @testing-library/react @testing-library/jest-dom jsdom jest babel-jest @babel/preset-env @testing-library/user-event`
+
+
+
+>`npm install --save-dev jest-environment-jsdom`
+>`npm install --save-dev @types/jest`
+
+### Configure Vitest in *vite.config.json*
+
+```js
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+Export default defineConfig({
+  plugins: [react()],
+  test: {
+     environment: 'jsdom',
+      globals: true
+  },
+})
+```
+
+### Upodate Scripts in *package.json*
+
+```json
+"scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest"
+}
+```
+### Create a test file in *App.test.jsx*
+
+```js
+import { expect, test } from "vitest";
+import App from './App';
+import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
+
+test("renders hello message", () => {
+    render(<App />);
+expect(screen.getByText(/open for business/i)).toBeInTheDocument();
+});
+});
+```
+![terminal output](https://github.com/user-attachments/assets/b19fe4ab-15b9-4652-96c6-031b8b02da75)
