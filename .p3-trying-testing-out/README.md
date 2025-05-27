@@ -18,7 +18,7 @@
 >`npm install --save-dev jest-environment-jsdom`
 >`npm install --save-dev @types/jest`
 
-### Configure Vitest
+### Configure Vitest in *vite.config.json*
 
 ```js
 import { defineConfig } from 'vite';
@@ -33,7 +33,7 @@ Export default defineConfig({
 })
 ```
 
-### Upodate Scripts in package.json
+### Upodate Scripts in *package.json*
 
 ```json
 "scripts": {
@@ -43,4 +43,12 @@ Export default defineConfig({
     "test": "vitest"
 }
 ```
-### Create a test file
+### Create a test file in *App.test.jsx*
+
+```js
+  test("renders hello message", () => {
+    render(<App />);
+    expect(screen.getByText(/open for business/i)).toBeInTheDocument();
+});
+```
+
